@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	  <% articleList.forEach(function (article) { %>
+    <div>
+      <h2>
+        <a href="/articles/<%= article.id %>"><%= article.title %></a>
+      </h2>
+      <div>
+        <%= article.author %>
+      </div>
+    </div>
+  <% }) %>
+
+
+</body>
+</html>

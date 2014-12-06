@@ -90,7 +90,7 @@ app.get('/articles/:id', function(req, res){
     if(err) {
       console.error("OOPS! SOMEHTING WENT WRONG!", err);
     }
-    client.query(config, 'SELECT * FROM articles WHERE article_id=$1', [req.params.id], function(err, result) {
+    client.query('SELECT * FROM articles WHERE article_id=$1', [req.params.id], function(err, result) {
         done();
         
         console.log(result.rows);
@@ -103,6 +103,10 @@ app.get('/articles/:id', function(req, res){
   });
 
 });
+
+//delete article
+
+
 /*****************
  *****************
  **

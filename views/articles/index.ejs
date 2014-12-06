@@ -1,0 +1,111 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ernesto | elbesto</title>
+    <link rel="stylesheet" href="styles/css/foundation.min.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>  
+    
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="nav-bar right">
+         <ul class="button-group">
+           <li><a href="/articles" class="button">home</a></li>
+           <li><a href="/articles/new" class="button">new</a></li>
+           <li><a href="/about" class="button">about</a></li>
+           <li><a href="/contact" class="button">contact</a></li>
+          </ul>
+        </div>
+        <h1>NewsFeed<small> simple. node.</small></h1>
+        <hr/>
+      </div>
+    </div>
+
+    
+    <div class="row">    
+      
+      <div class="large-9 columns" role="content">
+      <% articleList.forEach(function(article){ %>
+        <article>
+
+          <h3><a href="articles/<%= article.id %>"><%= article.title %> </a></h3>
+          <h6>Written by <a href="#"><%= article.author %></a> on <%= article.date %>.</h6>
+    
+          <div class="row">
+            <div class="large-6 columns">
+              <p><%= article.summary %></p>
+            </div>
+            <!-- <div class="large-6 columns">
+              <img src="http://placehold.it/400x240&text=[img]"/>
+            </div> -->
+          </div>
+    
+        </article>
+        
+        <hr/>
+      <% }) %>
+    
+      </div>
+    
+       
+    
+    
+       
+    
+      <aside class="large-3 columns">
+    
+        <h5>Categories</h5>
+        <ul class="side-nav">
+          <li><a href="#">living</a></li>
+          <li><a href="#">learning</a></li>
+          <li><a href="#">loving</a></li>
+        </ul>
+    
+        <div class="panel">
+          <h4>REMINDER</h4>
+          <!-- <p>Destiny is not a matter of chance; it is a matter of choice.</p>
+          <p>It is not a thing to be waited for, it is a thing to be achieved.</p>
+          <cite>- William Jennings Bryan</cite>
+          <a href="#">Read More →</a> -->
+        </div>
+        <blockquote>Destiny is not a matter of chance; it is a matter of choice.It is not a thing to be waited for, it is a thing to be achieved.<cite>William Jennings Bryan</cite></blockquote>
+    
+      </aside>
+    
+       
+    </div>
+    
+     
+    
+    
+     
+    
+    <footer class="row">
+      <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+          <div class="large-6 columns">
+            <p>© angelo cisneros. first this, then guitar.</p>
+          </div>
+          <div class="large-6 columns">
+            <ul class="inline-list right">
+              <li><a href="/articles">home</a></li>
+              <li><a href="/articles/new">new</a></li>
+              <li><a href="/about">about</a></li>
+              <li><a href="/contact">contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

@@ -1,17 +1,4 @@
 
-  // <div>
-  //   <h2>
-  //     <a href="/news/<%= article.id %>"><%= article.title %></a>
-  //   </h2>
-  //   <div>
-  //     <%= article.content %>
-  //   </div>
-  // </div>
-  // <div>
-  //   <form action="/news/<%= article.id %>?_method=DELETE" method="post">
-  //     <button>DELETE</button>
-  //   </form>
-  // </div>
 var express = require("express"),
 	bodyParser = require("body-parser"),
 	methodOverride = require("method-override"),
@@ -29,79 +16,62 @@ var config = {
 };
 
 
-var articles = [{title: 'Wanderer', content: 'This is an article its really good. You should read it!.'}, {title: 'Whats new in Serial!', content: 'Spoilers not going to talk about it here so I dont ruin it for others'}];
+var articles = [];
 
 app.get('/', function(req,res) {
 	res.redirect('/news');
 });
 
-app.get('/news', function(req,res) {
-	pg.connect(config, function(err, client, done){
-        if (err) {
-             console.error("OOOPS!!! SOMETHING WENT WRONG!", err);
-        }
-
-        client.query("SELECT * FROM articles", function (err, articles) 
-        {
-            done(); 
-            displayPage(articles.rows);
-            res.render("news/index", {articles: articles.rows}); 
-
-        });
-
-    });	
-});
-
-
-var displayPage = function(result)
+app.get('/news', function(req,res) 
 {
-	for (var i = 0; i < result.length; i += 1)
+	pg.connect(config, function(err, client, done)
 	{
-		console.log(result[i].title);
-	}
-	//var node = this.content.document.getElementById('newsfeed');
+    if (err) 
+    {
+         console.error("OOOPS!!! SOMETHING WENT WRONG!", err);
+    }
 
-	// node.innerHTML = "";
+    client.query("SELECT * FROM articles;", function (err, articles) 
+    {
+      res.render("news/index", {articles: articles.rows}); 
+    });
 
- //    for (var i = 0; i < result.length; i += 1)
- //    {
-	// 	var newDiv = window.content.document.createElement("div");
-	// 	newDiv.id = "row_" + i;
-	// 	newDiv.className = "row";
-	// 	document.getElementById('newsfeed').appendChild(newDiv);
-
-	// 	newDiv = document.createElement("div");
-	// 	newDiv.className = "col-sm-12 col-md-12 col-lg-12";
-
-	// 	document.getElementById('row_'+i).appendChild(newDiv);
- //    }
-};
+    done();
+  });
+});
 
 app.get('/news/new', function(req,res) {
   res.render('news/new');
 });
 
-app.get("/news/:id", function (req, res) {
 
-  pg.connect(config, function(err, client, done){
-        if (err) {
-             console.error("OOOPS!!! SOMETHING WENT WRONG!", err);
-        }
+app.get("/news/:id", function (req, res) 
+{
+  pg.connect(config, function(err, client, done)
+  {
+    if (err) 
+    {
+       console.error("OOOPS!!! SOMETHING WENT WRONG!", err);
+    }
 
-        client.query("SELECT * FROM articles WHERE id=$1", [req.params.id], function (err, result) {
+    else
+    {
+      client.query("SELECT * FROM articles WHERE id=$1", [req.params.id], function (err, result) 
+      {
         done(); 
 
-        if (result.rows.length) {
-	        res.render("news/show", {article: result.rows[0]});
-	        } 
+        if (result.rows[0]) 
+        {
+          res.render("news/show", {article: result.rows[0]});
+        } 
 
-	   else {
-	        // read about this http://expressjs.com/api.html#res.status
-	        res.status(404).send("Article Not Found");
-	        }      
-        });
-
-    });
+        else 
+        {
+          res.status(404).send("Article Not Found");
+        }      
+      });
+    }
+  });
 });
 
 app.post('/news', function(req,res) {

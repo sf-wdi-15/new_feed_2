@@ -17,6 +17,8 @@
         text-align: center;
         background: #f2f2f2;
     }
+
+
 </style>
 </head>
 <body>
@@ -46,13 +48,17 @@
 
 <div class="container">
     <div id="newsfeed">
-        <% for (var i = 0; i < articles.length; i += 1) 
-        { %>
+
+        <% articles.forEach(function (article) { %>
             <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12"><p>
-                <%= articles[i].title %>
-                </p></div>
-        <%} %>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <p>
+                        <a href="/news/<%= article.id %>"><%= article.content %><%= article.title %></a>
+                        <%= article.content %>
+                    </p>
+                </div>
+            </div>
+       <% }) %> 
     </div>
 </div>
 </body>

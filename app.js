@@ -104,6 +104,7 @@ app.get('/articles/:id', function(req, res){
 
 });
 
+//delete article by id
 app.delete("/articles/:id", function(req, res){
   //var articleId = parseInt(req.params.id);
   
@@ -125,6 +126,8 @@ app.delete("/articles/:id", function(req, res){
   });
 
 });
+
+
 /*****************
  *****************
  **

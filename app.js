@@ -104,9 +104,27 @@ app.get('/articles/:id', function(req, res){
 
 });
 
-//delete article
+app.delete("/articles/:id", function(req, res){
+  //var articleId = parseInt(req.params.id);
+  
+  pg.connect(config, function(err, client, done){
+    if(err) {
+      console.error("OOPS! SOMEHTING WENT WRONG!", err);
+    }
+    client.query('DELETE FROM articles WHERE article_id=$1 RETURNING *', [req.params.id], function(err, result) {
+        done();
+        
+        console.log(result.rows);
+      if (result.rows.length) {
+        console.log('deleted successfully');
+        res.redirect('/'); 
+      } else {
+        res.status(404).send("article not found");
+      }
+    });
+  });
 
-
+});
 /*****************
  *****************
  **

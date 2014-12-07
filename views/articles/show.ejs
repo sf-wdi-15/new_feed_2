@@ -30,8 +30,12 @@
       <div class="large-9 columns" role="content">
         <article>
 
-          <h3><a href="/articles/<%= article.id %>"><%= article.title %> </a></h3>
-          <h6>Written by <a href="#">FILL IN ARUTHOR</a> on FILL IN DATE.</h6>
+          <h3>
+            <a href="<%= article.article_id %>"> <%= article.title %> </a>
+          </h3>
+          <h6>
+            Written by <a href="#"><%= article.author %></a> on FILL IN DATE.
+          </h6>
     
           <div class="row">
             <div class="large-6 columns">
@@ -42,7 +46,7 @@
             </div> -->
           </div>
 
-          <form action="/articles/<%= article.id %>?_method=DELETE" method="post">
+          <form action="/articles/<%= article.article_id %>?_method=DELETE" method="post">
             <button>DELETE</button>
           </form>
     

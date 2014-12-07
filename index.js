@@ -1,19 +1,17 @@
-// <!--views/articles/index.ejs-->
-// <!DOCTYPE HTML>
-// <html>
-// <body>
-// <h1>Articles index</h1>
-// <% articlesList.forEach(function(article) { %>
-// <div>
-//   <%= article.title %>
-//   <div>
-//     <%= article.content %>
-//   </div>
-// </div>
-// <% }) %>
-// </body>
-// </html>
 
+  // <div>
+  //   <h2>
+  //     <a href="/news/<%= article.id %>"><%= article.title %></a>
+  //   </h2>
+  //   <div>
+  //     <%= article.content %>
+  //   </div>
+  // </div>
+  // <div>
+  //   <form action="/news/<%= article.id %>?_method=DELETE" method="post">
+  //     <button>DELETE</button>
+  //   </form>
+  // </div>
 var express = require("express"),
 	bodyParser = require("body-parser"),
 	methodOverride = require("method-override"),
@@ -43,14 +41,41 @@ app.get('/news', function(req,res) {
              console.error("OOOPS!!! SOMETHING WENT WRONG!", err);
         }
 
-        client.query("SELECT * FROM articles", function (err, result) {
+        client.query("SELECT * FROM articles", function (err, articles) 
+        {
             done(); 
-            console.log(result.rows);  
-            res.render("news/index", {articlesList: result.rows});         
+            displayPage(articles.rows);
+            res.render("news/index", {articles: articles.rows}); 
+
         });
 
     });	
 });
+
+
+var displayPage = function(result)
+{
+	for (var i = 0; i < result.length; i += 1)
+	{
+		console.log(result[i].title);
+	}
+	//var node = this.content.document.getElementById('newsfeed');
+
+	// node.innerHTML = "";
+
+ //    for (var i = 0; i < result.length; i += 1)
+ //    {
+	// 	var newDiv = window.content.document.createElement("div");
+	// 	newDiv.id = "row_" + i;
+	// 	newDiv.className = "row";
+	// 	document.getElementById('newsfeed').appendChild(newDiv);
+
+	// 	newDiv = document.createElement("div");
+	// 	newDiv.className = "col-sm-12 col-md-12 col-lg-12";
+
+	// 	document.getElementById('row_'+i).appendChild(newDiv);
+ //    }
+};
 
 app.get('/news/new', function(req,res) {
   res.render('news/new');
@@ -64,7 +89,6 @@ app.get("/news/:id", function (req, res) {
         }
 
         client.query("SELECT * FROM articles WHERE id=$1", [req.params.id], function (err, result) {
-        console.log(result.rows);
         done(); 
 
         if (result.rows.length) {
@@ -79,6 +103,7 @@ app.get("/news/:id", function (req, res) {
 
     });
 });
+
 app.post('/news', function(req,res) {
   var newArticle = req.body.article;
   pg.connect(config, function(err, client, done){
@@ -90,9 +115,7 @@ app.post('/news', function(req,res) {
           var article = result.rows[0];   
           res.redirect("/news/" + article.id);      
       });
-
   });
-
 });
 
 

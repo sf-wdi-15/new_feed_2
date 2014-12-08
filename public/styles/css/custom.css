@@ -1,6 +1,29 @@
+body {
+  background-color: rgba(248,248,248,1);
+  color: rgba(93,105,122,1);
+}
 .tab-bar {
-  background-color: rgba(204, 51, 0, 1);
+  background-color: rgba(255, 71, 0, 1);
 }
 .flex-video {
   margin-top: 1em;
+  border: 1.25em solid;
+  border-radius: 15px;
+  /*border-color:#669999;*/
+}
+img{
+  border: 1.25em solid;
+  border-radius: 15px;
+}
+
+h2 {
+  color: #669999;
+  text-shadow: rgba(0, 0, 0, .2) 1px 1px 2px;
+} 
+h4 small {
+    text-transform: lowercase;
+}
+fieldset legend {
+  font-weight: bold;
+  background: rgba(248,248,248,1); 
 }

@@ -138,17 +138,17 @@ app.delete("/articles/:id", function(req, res){
 
 //homepage
 app.get('/', function(req, res){
-  res.render('../public/index');
+  res.render('site/index');
 });
 
 //about page
 app.get('/about', function(req, res){
-  res.render('../public/about');
+  res.render('site/about');
 });
 
 //contact page
 app.get('/contact', function(req, res){
-  res.render('../public/contact');
+  res.render('site/contact');
 });
 
 

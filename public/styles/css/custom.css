@@ -27,3 +27,9 @@ fieldset legend {
   font-weight: bold;
   background: rgba(248,248,248,1); 
 }
+footer {
+  padding-top: 1em;
+}
+.breadcrumbs {
+  margin-top: 1em;
+}

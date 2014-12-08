@@ -33,3 +33,6 @@ footer {
 .breadcrumbs {
   margin-top: 1em;
 }
+.panel {
+  background-color: rgba(102,153,153,.25);
+}

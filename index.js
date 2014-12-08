@@ -84,7 +84,7 @@ app.post('/news', function(req,res) {
       if (err) {
            console.error("OOOPS!!! SOMETHING WENT WRONG!", err);
       }
-      client.query("INSERT INTO articles (title, content, imgurl) VALUES ($1, $2, $3) RETURNING *", [newArticle.title, newArticle.content, newArticle.imgurl], function (err, result) {
+      client.query("INSERT INTO articles (title, content, imgurl, summary) VALUES ($1, $2, $3, $4) RETURNING *", [newArticle.title, newArticle.content, newArticle.imgurl, newArticle.summary], function (err, result) {
           done(); 
           var article = result.rows[0];   
           res.redirect("/news/" + article.id);      

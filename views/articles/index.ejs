@@ -5,8 +5,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ernesto | elbesto</title>
-  <link rel="stylesheet" href="../../styles/css/foundation.min.css" />
-  <script src="../../js/vendor/modernizr.js"></script>
+  <link rel="stylesheet" href="/styles/css/foundation.min.css" />
+  <script src="/js/vendor/modernizr.js"></script>
 </head>
 
 
@@ -15,20 +15,25 @@
 <body>  
   
   <!-- nav bar -->
-  <div class="row"> 
+  <div class="contain-to-grid sticky">
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+      <ul class="button-group">
+        <li><a href="/articles" class="button">home</a></li>
+        <li><a href="/articles/new" class="button">new</a></li>
+        <li><a href="/about" class="button">about</a></li>
+        <li><a href="/contact" class="button">contact</a></li>
+      </ul>
+    </nav>
+</div>
+  <!-- <div class="row sticky"> 
     <div class="large-12 columns">
       <div class="nav-bar right">
-       <ul class="button-group">
-         <li><a href="/articles" class="button">home</a></li>
-         <li><a href="/articles/new" class="button">new</a></li>
-         <li><a href="/about" class="button">about</a></li>
-         <li><a href="/contact" class="button">contact</a></li>
-        </ul>
+       
       </div>
       <h1>NewsFeed<small> simple. node.</small></h1>
       <hr/>
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -123,8 +128,8 @@
     </div>
   </footer>
   
-  <script src="../../js/vendor/jquery.js"></script>
-  <script src="../../js/foundation.min.js"></script>
+  <script src="/js/vendor/jquery.js"></script>
+  <script src="/js/foundation.min.js"></script>
   <script>
     $(document).foundation();
   </script>

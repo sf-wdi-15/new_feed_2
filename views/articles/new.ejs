@@ -2,15 +2,22 @@
 <html>
 <head>
 	<title></title>
+	<link href="stylesheets/main.css" rel="stylesheet">
 </head>
 <body>
-	hello world
-	<!--
+<nav>
+      <a href="/"> Home </a>
+      <a href="/articles"> Articles </a>
+      <a href="/articles/new" class="selected"> Submit </a>
+      <a href="/contact"> Contact Us </a>
+    </nav>
+	
 <form method="post" action="/articles">
-	<input type="text" name="title">
-	<textarea name="content"></textarea>
+	<input type="text" name="article[title]" placeholder="enter title">
+	<input type="text" name="article[author]" placeholder="enter author">
+	<textarea name="article[content]"></textarea>
 	<button> Save </button>
 </form>
--->
+
 </body>
 </html>

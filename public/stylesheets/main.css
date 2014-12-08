@@ -1,0 +1,18 @@
+nav {
+	display: inline;
+	
+}
+
+nav a{
+	margin-left: 20px;
+	margin-right: 20px;
+	color: blue;
+}
+
+.selected {
+	font-weight: bold;
+}
+
+textarea {
+	color: blue;
+}

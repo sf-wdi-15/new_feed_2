@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>Article</title>
+  <link href="/stylesheets/main.css" rel="stylesheet">
+</head>
+<body>
+  <nav>
+       <a href="/"> Home </a>
+      <a href="/articles" class="selected" > Articles </a>
+      <a href="/articles/new"> Submit </a>
+      <a href="/contact"> Contact Us </a>
+    </nav>
+  <div>
+    <h2>
+      <%= article.title %>
+    </h2>
+    <h3>
+      <%= article.author %>
+    </h3>
+    <div>
+      <%= article.content %>
+    </div>
+  </div>
+  <div>
+    <form action="/articles/<%= article.id %>?_method=DELETE" method="post">
+      <button class="delete">DELETE</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="/stylesheets/main.css" rel="stylesheet">
+</head>
+<body>
+<nav>
+      <a href="/"> Home </a>
+      <a href="/articles"> Articles </a>
+      <a href="/articles/new" class="selected"> Submit </a>
+      <a href="/contact"> Contact Us </a>
+    </nav>
+	
+<form method="post" action="/articles">
+	<input type="text" name="article[title]" placeholder="enter title" class="submit">
+	<input type="text" name="article[author]" placeholder="enter author" class="submit">
+	<textarea name="article[content]" placeholder="enter article" class="submit"></textarea>
+	<button> Save </button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="/stylesheets/main.css" rel="stylesheet">
+</head>
+<body>
+	<nav>
+      <a href="/"> Home </a>
+      <a href="/articles" class="selected"> Articles </a>
+      <a href="/articles/new"> Submit </a>
+      <a href="/contact"> Contact Us </a>
+    </nav>
+	  <% articleList.forEach(function (article) { %>
+    <div>
+      <h2>
+        <a href="/articles/<%= article.id %>"><%= article.title %></a>
+      </h2>
+      <div>
+        <%= article.author %>
+      </div>
+    </div>
+  <% }) %>
+
+
+</body>
+</html>

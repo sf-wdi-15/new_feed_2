@@ -2,18 +2,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Example of Twitter Bootstrap 3 Grid System</title>
+<title>Daily Planet - <%= article.title %></title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <style type="text/css">
+    body {
+      background-color: black;
+      color: #9F9FA3;
+    }
     p{
-        padding: 200px;
-        font-size: 32px;
         font-weight: bold;
-        text-align: center;
-        background: #f2f2f2;
+        text-align: left;
+    }
+
+    .image {
+      position: relative;
+      margin-top: 80px;
+      width: 70%;
+      float:left;
+    }
+
+    .content {
+      position: relative;
+      margin-top: 80px;
+      width: 30%;
+      float:right;
+    }
+
+    .header {
+      font-size: 24px;
+    }
+
+    .article {
+      font-size: 20px;
     }
 </style>
 </head>
@@ -33,24 +56,26 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
-        <li><a href="about">About</a></li>
-        <li><a href="contact">Contact</a></li>
+        <li class="active"><a href="../">Home</a></li>
+        <li><a href="../about">About</a></li>
+        <li><a href="../contact">Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
-
-<div id="newsfeed">
-  <div>
-    <h2>
-      <a href="/news/<%= article.id %>"><%= article.title %></a>
-    </h2>
-    <div>
-      <%= article.content %>
+<div class="container">
+  <div id="newsfeed">
+     <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <img src="<%= article.imgurl %>" class="col-sm-12 col-md-12 col-lg-12 image" />    
+         <p class="content">
+            <a href="/news/<%= article.id %>" class="header"><%= article.title %></a>
+            <br/>
+            <%= article.content %>
+        </p>
+        </div>
     </div>
   </div>
 </div>
-
 </body>
 </html>

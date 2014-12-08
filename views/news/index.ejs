@@ -4,20 +4,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Example of Twitter Bootstrap 3 Grid System</title>
+<title>Daily Planet - Homepage</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <style type="text/css">
     p{
-        padding: 200px;
-        font-size: 32px;
+        margin-left: 200px;
+        margin-right: 100px;
+        margin-top: 25px;
         font-weight: bold;
-        text-align: center;
-        background: #f2f2f2;
+        text-align: left;
     }
 
+    body {
+      background-color: black;
+      color: #9F9FA3;
+    }
+
+    .rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    }
+
+
+    .header {
+      font-size: 24px;
+    }
+
+    .article {
+      font-size: 18px;
+    }    
 
 </style>
 </head>
@@ -44,22 +65,21 @@
 		</div>
 	</div>
 </nav>
+<div style="position: relative; margin-top: 70px; margin-left: 155px; font-size: 34px;">
+Straight from the Source
+</div>
 
-
-<div class="container">
     <div id="newsfeed">
-
         <% articles.forEach(function (article) { %>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <p>
-                        <a href="/news/<%= article.id %>"><%= article.content %><%= article.title %></a>
-                        <%= article.content %>
+                    <p class="article" >
+                        <a href="/news/<%= article.id %>" class="header"><%= article.title %></a>
+                        <%= article.summary %>
                     </p>
                 </div>
             </div>
        <% }) %> 
     </div>
-</div>
 </body>
 </html>                                		

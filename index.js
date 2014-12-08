@@ -74,13 +74,17 @@ app.get("/news/:id", function (req, res)
   });
 });
 
+//need to change add div to make inputting into db faster
+//add image to table so i can show the background
+//
+
 app.post('/news', function(req,res) {
   var newArticle = req.body.article;
   pg.connect(config, function(err, client, done){
       if (err) {
            console.error("OOOPS!!! SOMETHING WENT WRONG!", err);
       }
-      client.query("INSERT INTO articles (title, content) VALUES ($1, $2) RETURNING *", [newArticle.title, newArticle.content], function (err, result) {
+      client.query("INSERT INTO articles (title, content, imgurl) VALUES ($1, $2, $3) RETURNING *", [newArticle.title, newArticle.content, newArticle.imgurl], function (err, result) {
           done(); 
           var article = result.rows[0];   
           res.redirect("/news/" + article.id);      

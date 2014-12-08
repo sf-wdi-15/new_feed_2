@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title></title>
-	<link href="stylesheets/main.css" rel="stylesheet">
+	<link href="/stylesheets/main.css" rel="stylesheet">
 </head>
 <body>
 <nav>
@@ -13,9 +13,9 @@
     </nav>
 	
 <form method="post" action="/articles">
-	<input type="text" name="article[title]" placeholder="enter title">
-	<input type="text" name="article[author]" placeholder="enter author">
-	<textarea name="article[content]"></textarea>
+	<input type="text" name="article[title]" placeholder="enter title" class="submit">
+	<input type="text" name="article[author]" placeholder="enter author" class="submit">
+	<textarea name="article[content]" placeholder="enter article" class="submit"></textarea>
 	<button> Save </button>
 </form>
 

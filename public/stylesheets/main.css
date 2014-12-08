@@ -13,6 +13,15 @@ nav a{
 	font-weight: bold;
 }
 
-textarea {
-	color: blue;
+.delete {
+	margin-top: 30px;
 }
+
+.submit {
+	vertical-align: bottom;
+}
+
+form {
+	margin-top: 80px;
+}
+

@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Article</title>
-  <link href="stylesheets/main.css" rel="stylesheet">
+  <link href="/stylesheets/main.css" rel="stylesheet">
 </head>
 <body>
   <nav>
@@ -15,16 +15,16 @@
     <h2>
       <%= article.title %>
     </h2>
-    <div>
+    <h3>
       <%= article.author %>
-    </div>
+    </h3>
     <div>
       <%= article.content %>
     </div>
   </div>
   <div>
     <form action="/articles/<%= article.id %>?_method=DELETE" method="post">
-      <button>DELETE</button>
+      <button class="delete">DELETE</button>
     </form>
   </div>
 </body>

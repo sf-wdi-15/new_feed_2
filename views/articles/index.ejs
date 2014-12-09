@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>The Daily Planet - Articles</title>
+</head>
+<body>
+  <nav>
+    <a href="/" class="selected"> Home </a>
+    <a href="/articles" > Articles </a>
+    <a href="/articles/new"> Submit </a>
+    <a href="/about">About</a>
+    <a href="/contact"> Contact Us </a>
+  </nav>
+	<h2>Articles</h2>
+	  <% articleList.forEach(function (article) { %>
+    <div>
+      <h2>
+        <a href="/articles/<%= article.id %>"><%= article.title %></a>
+      </h2>
+      <div>
+        <%= article.author %>
+      </div>
+    </div>
+  <% }) %>
+</body>
+</html>

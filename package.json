@@ -1,0 +1,26 @@
+{
+  "name": "new_feed_2",
+  "version": "1.0.0",
+  "description": "### Background",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/el-besto/new_feed_2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/el-besto/new_feed_2/issues"
+  },
+  "homepage": "https://github.com/el-besto/new_feed_2",
+  "dependencies": {
+    "body-parser": "^1.10.0",
+    "ejs": "^1.0.0",
+    "express": "^4.10.4",
+    "method-override": "^2.3.0",
+    "pg": "^4.1.0"
+  }
+}

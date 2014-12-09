@@ -44,8 +44,9 @@ var express        = require('express'),
   
 // get articles index
 app.get('/articles', function (req, res) {
-  console.log(req.body);
-  db.Article.findAll().then(function (article) {
+  db.Article
+    .findAll()
+    .then(function (article) {
       res.render('articles/index', {articleList: article});
     });
 });
@@ -54,6 +55,22 @@ app.get('/articles', function (req, res) {
 app.get('/articles/new', function (req, res) {
   res.render('articles/new');
 });
+
+// post new article
+app.post('/articles', function (req, res) {
+  db.Article
+    .create({
+              title:   req.body.article.title,
+              author:  req.body.article.author,
+              summary: req.body.article.summary,
+              img_url: req.body.article.img_url
+    })
+    .then(function (article) {
+      res.redirect('/articles');
+  });
+});
+
+// get article by id
 
 // // post new article 
 // app.post('/articles', function(req, res){

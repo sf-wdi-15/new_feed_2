@@ -5,6 +5,10 @@ body {
 .tab-bar {
   background-color: rgba(255, 71, 0, 1);
 }
+  .tab-bar a{
+    color: #FFF;
+    text-shadow: rgba(0, 0, 0, .2) 1px 1px 2px;
+  }
 .flex-video {
   margin-top: 1em;
   border: 1.25em solid;
@@ -12,9 +16,13 @@ body {
   /*border-color:#669999;*/
 }
 img{
-  border: 1.25em solid;
+  /*border: .1em solid rgba(255, 71, 0, .5);*/
   border-radius: 15px;
 }
+  .panel img{
+    /*border: .1em solid rgba(255, 71, 0, .5);*/
+    border-radius: 5px;
+  }
 
 h2 {
   color: #669999;

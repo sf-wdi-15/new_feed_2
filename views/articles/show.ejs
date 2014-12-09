@@ -60,10 +60,10 @@
               <article>
 
                 <h3>
-                  <a href="<%= article.article_id %>"> <%= article.title %> </a>
+                  <a href="<%= article.id %>"> <%= article.title %> </a>
                 </h3>
                 <h6>
-                  Written by <a href="#"><%= article.author %></a> on FILL IN DATE.
+                  Written by <a href="#"><%= article.author %></a> on FILL IN DATE <%= article.createdAt %>.
                 </h6>
               
                 <div class="row">
@@ -71,11 +71,11 @@
                     <p><%= article.summary %></p>
                   </div>
                   <div class="large-3 columns">
-                    <img src="<%= article.primary_image %>"/>
+                    <img src="<%= article.img_url %>"/>
                   </div>
                 </div>
 
-                <form action="/articles/<%= article.article_id %>?_method=DELETE" method="post">
+                <form action="/articles/<%= article.id %>?_method=DELETE" method="post">
                   <button>DELETE</button>
                 </form>
               

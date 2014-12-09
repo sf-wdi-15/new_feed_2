@@ -46,8 +46,11 @@ var express        = require('express'),
 app.get('/articles', function (req, res) {
   db.Article
     .findAll()
-    .then(function (article) {
-      res.render('articles/index', {articleList: article});
+    .then (function (article) {
+      res.render ('articles/index', {articleList: article});
+    })
+    .catch (function (err) {
+      console.log(err);
     });
 });
 
@@ -59,41 +62,31 @@ app.get('/articles/new', function (req, res) {
 // post new article
 app.post('/articles', function (req, res) {
   db.Article
-    .create({
+    .create ({
               title:   req.body.article.title,
               author:  req.body.article.author,
               summary: req.body.article.summary,
               img_url: req.body.article.img_url
     })
-    .then(function (article) {
+    .then (function (article) {
       res.redirect('/articles');
+  }).catch (function(err) {
+    console.log(err);
   });
 });
 
 // get article by id
+app.get('/articles/:id', function (req, res) {
+  db.Article
+    .find( parseInt( req.params.id ) )
+    .then( function( result ) {
+      res.render('articles/show', { article: result });
+    })
+    .catch (function (err) {
+      console.log(err);
+    });
+});
 
-// // post new article 
-// app.post('/articles', function(req, res){
-//   console.log(req.body);
-//   db.article
-//     .create({
-//               title:   req.body.article.title,
-//               author:  req.body.article.author,
-//               content: req.body.article.summary
-//     })
-//     .then(function(article){
-//       res.redirect('/articles');
-//     });
-// });
-
-// //show article by id
-// app.get('/articles/:id', function(req, res){
-//   db.article
-//     .find(id)
-//     .then(function(article){
-//       res.render('articles/:id');
-//     });
-// });
 
 // //delete article by id
 // app.delete("/articles/:id", function(req, res){
@@ -119,28 +112,28 @@ app.post('/articles', function (req, res) {
 // });
 
 
-// /*****************
-//  *****************
-//  **
-//  ** SITE ROUTES
-//  **
-//  *****************
-// *****************/
+/*****************
+ *****************
+ **
+ ** SITE ROUTES
+ **
+ *****************
+*****************/
 
-// //homepage
-// app.get('/', function(req, res){
-//   res.render('site/index');
-// });
+//homepage
+app.get('/', function(req, res){
+  res.render('site/index');
+});
 
-// //about page
-// app.get('/about', function(req, res){
-//   res.render('site/about');
-// });
+//about page
+app.get('/about', function(req, res){
+  res.render('site/about');
+});
 
-// //contact page
-// app.get('/contact', function(req, res){
-//   res.render('site/contact');
-// });
+//contact page
+app.get('/contact', function(req, res){
+  res.render('site/contact');
+});
 
 
 /*****************

@@ -1,0 +1,29 @@
+html {
+  background-color: white;
+}
+
+h1 {
+line-height: 24px;
+font-family: Helvetica;
+font-size: 72px;
+text-align: center;
+line-height: 1;
+color: black;
+}
+
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+ul{
+     padding: 8px;
+     background: rgba(20,20,20,0.8);
+     text-align: center;
+     font-size: 24px;
+    }
+li{
+      display: inline;
+      padding: 0px 80px 0px 80px;
+}

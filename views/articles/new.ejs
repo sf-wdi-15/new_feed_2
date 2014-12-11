@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Articles</title>
+	<link href="stylesheets/main.css" rel="stylesheet">
+</head>
+<body>
+<nav>
+	<a href="/">Home</a>
+	<a href="/articles">Articles</a>
+	<a href="/articles/new" class="selected">Add New</a>
+	<a href="/about">About Us</a>
+	<a href="/contact">Contact Us</a>
+</nav>
+	<h1>Complete the following form</h1>
+	<form method="post" action="/articles">
+
+		<input type="text" name="article[title]" placeholder="What is the title of your article">
+
+		</br>
+		<textarea name="article[content]">Enter article</textarea>
+		</br>
+		<button>Save</button>
+	</form>
+</body>
+</html>

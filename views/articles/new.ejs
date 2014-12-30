@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Daily Planet - Submit</title>
+  	<link rel="stylesheet" href="stylesheets/main.css">
+ 	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<ul id="nav">
+	    <li><u><a href="/">Home</a></u></li>
+	    <li><u><a href="/articles">Articles</a></u></li>
+	    <li><u><a href="/articles/new">Submit</a></u></li>
+	    <li><u><a href="/about">About</a></u></li>
+	    <li><u><a href="/contact">Contact Us</a></u></li>
+  	</ul>
+	
+	<div class="container" id="form">
+	<form method="post" action="/articles">
+		<input type="text" name="article[title]" placeholder="enter title" class="submit">
+		<input type="text" name="article[author]" placeholder="enter author" class="submit">
+		<textarea name="article[content]" placeholder="enter article" class="submit"></textarea>
+		<button>Save</button>
+	</form>
+	</div>
+</body>
+</html>

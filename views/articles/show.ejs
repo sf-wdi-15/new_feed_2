@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>The Daily Planet - Show Article</title>
+  <link rel="stylesheet" href="stylesheets/main.css">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <ul id="nav">
+    <li><u><a href="/">Home</a></u></li>
+    <li><u><a href="/articles">Articles</a></u></li>
+    <li><u><a href="/articles/new">Submit</a></u></li>
+    <li><u><a href="/about">About</a></u></li>
+    <li><u><a href="/contact">Contact Us</a></u></li>
+  </ul>
+  <div class="moveit">
+    <h2>
+      <%= article.title %>
+    </h2>
+    <h3>
+      <%= article.author %>
+    </h3>
+    <div>
+      <%= article.content %>
+    </div>
+  </div>
+  <div class="moveit">
+    <form action="/articles/<%= article.id %>?_method=DELETE" method="post">
+      <button class="delete">DELETE</button>
+    </form>
+  </div>
+</body>
+</html>
